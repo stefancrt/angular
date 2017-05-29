@@ -14,7 +14,7 @@
 </head>
 <!--Iniciamos App // Inicializamos variables de Scope
 	ANTIPATRON que no se debe utilizar-->
-<body ng-app ng-init="sCurso = 'Curso Angular'; sNombre='Pepe'">
+<body ng-app ng-init="aNombres=['Pepe', 'Luis', 'Juan', 'Pepe'];">
 	<header>
 		<h1>Formulario de saludo</h1>
 	</header>
@@ -29,15 +29,21 @@
 		</form>
 
 			<!--Presentamos mediante expresiones los valores de variables del scope-->
-		<p>Hola <span class="destacado">{{sNombre}}</span>.</p>
-		<p>Bienvenid@ al curso de <strong class="destacado">{{sCurso}}</strong>.</p>
-	
-		
+		<p>Hola <span class="destacado">{{sNombre.toUpperCase()}}</span>.</p>
+
+		<p>Algunos nombres para que elijas : </p>
+		<ul ng-repeat="nombre in aNombres track by $index">
+			<li>{{$last ? "y por último : ": ""}}
+				{{nombre}} ({{$index+1}})</li>
+		</ul>
+
 	</article>
 	<footer>
 		<p>Alejandro L. Cerezo - Madrid 2017</p>
 	</footer>
 </body>
+
+
 
 
 

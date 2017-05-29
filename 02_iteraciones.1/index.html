@@ -14,30 +14,38 @@
 </head>
 <!--Iniciamos App // Inicializamos variables de Scope
 	ANTIPATRON que no se debe utilizar-->
-<body ng-app ng-init="sCurso = 'Curso Angular'; sNombre='Pepe'">
+<body ng-app ng-init ="nombre = 'Pepe'; aPensamientos = []">
+	<!-- Anti-patrón: se inicializa el modelo en una directiva. 
+		 Lo más adecuado es hacerlo en el controler -->	
 	<header>
-		<h1>Formulario de saludo</h1>
+		<h1>Pensamientos</h1>
 	</header>
 	<article>
 		<form name="formulario">
-			<label for="sNombre">Indica tu nombre</label>
-			<!--Asociamos el imput a una variable del Modelo-->
-			<input type="text" id="sNombre" ng-model="sNombre">
+			<label for="fNombre">Indica tu nombre</label>
+			<input type="text" id="fNombre" ng-model="nombre">
+			<label for="fIdea" id="lblIdea">Comparte una idea</label>
+			<input type="text" id="fIdea" ng-model="nuevoPensamiento">
 			<label></label>
-			<!--Asociamos una operación con el evento click-->
-			<input type="button" value="Borrar nombre" ng-click="sNombre=''">	
+			<input type="button" id="boton" value="Añadir" 
+			ng-click="aPensamientos.push(nuevoPensamiento); nuevoPensamiento = '';">	
 		</form>
 
-			<!--Presentamos mediante expresiones los valores de variables del scope-->
-		<p>Hola <span class="destacado">{{sNombre}}</span>.</p>
-		<p>Bienvenid@ al curso de <strong class="destacado">{{sCurso}}</strong>.</p>
-	
-		
+		<p>Hola {{nombre}}</p>
+		<h2>Pensamientos que has tenido</h2>
+		<ul>	
+			<li ng-repeat="pensamiento in aPensamientos track by $index">
+				Tu pensamiento número {{$index + 1}} fue: <q>{{pensamiento}}</q></li>
+		</ul>			
 	</article>
 	<footer>
 		<p>Alejandro L. Cerezo - Madrid 2017</p>
 	</footer>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
 </body>
+
+
+
 
 
 
