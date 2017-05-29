@@ -1,0 +1,25 @@
+{
+  "name": "angularjs",
+  "version": "1.0.0",
+  "description": "eje angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefancrt/angular.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefancrt/angular/issues"
+  },
+  "homepage": "https://github.com/stefancrt/angular",
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
