@@ -4,7 +4,7 @@
 // tal como recomienta la guÃ­a de estilo de AngularJS (ES2015) de Todd Motto
 
 
- class AcumuladorCtrl {
+ class Acumulador {
 
     //constructor () {
     //}
@@ -25,4 +25,4 @@
 
 
 angular.module("acumulador", [])
-.controller("AcumuladorCtrl", AcumuladorCtrl );
+.controller("Acumulador", Acumulador );
