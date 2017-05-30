@@ -10,37 +10,52 @@
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="icon" href="fav_icon.png">
-	<script type="text/javascript" src="../../lib/angular/angular.min.js"></script>
-	<script src="scripts/script.js"></script>
+	
+	
+	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+<style>
+	.positivo{
+		color: green
+	}
+	.negativo{
+		color:red;
+	}
+</style>
 </head>
 
-<body ng-app="miApp" ng-controller="MainController">
 
+	
+</head>
+
+<body ng-app="acumulador" ng-controller="AcumuladorCtrl as me">
+	
 	<header>
-		<h1>Pensamientos</h1>
+		<h1>Acumulador</h1>
 	</header>
 	<article>
+		<h2>Control de operacion</h2>
 		<form name="formulario">
-			<label for="fNombre" id="lblNombre">Indica tu nombre</label>
-			<input type="text" id="fNombre" name="fNombre" ng-model="nombre">
-			<label for="fIdea" id="lblIdea">Comparte una idea</label>
-			<input type="text" id="fIdea" name="fIdea" ng-model="nuevoPensamiento">
-			<label></label>
-			<input type="button" id="boton" value="Añadir" ng-click="botonAdd()">
+			<label for="fNumber" id="lblNumber">Incremento</label>
+			<input type="text" id="fNumber" name="fNumber" size="4" ng-model="me.number">
+			
+			<input type="button"  value="+" ng-click="me.botonAdd()">
+			<input type="button"  value="-" ng-click="me.botonRest()">	
 		</form>
 
-		<p>Hola {{nombre}}</p>
-		<h2>Pensamientos que has tenido</h2>
-		<ul>
-			<li ng-repeat="pensamiento in aPensamientos track by $index">
-				El pensamiento número {{$index + 1}} de {{nombre}} fue: <q>{{pensamiento}}</q></li>
-		</ul>
+		
+		<h2>Totales</h2>
+		<p ng-class="{positivo:me.total>=0,negativo:me.total<0}">En el acumulador llevamos <b>{{ me.total }}</b></p>
+		
 	</article>
 	<footer>
-		<p>Alejandro L. Cerezo - Madrid 2017</p>
+		<p>Stefan - Madrid 2017</p>
 	</footer>
+	<script src="scripts/script.js"></script>
 
 </body>
+
+
+
 
 
 

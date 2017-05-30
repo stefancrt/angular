@@ -47,7 +47,7 @@ form label {
 }
 
 form input {
-    display: inline-block;
+    display: block;
     width: 40%;
 }
 
